@@ -3,7 +3,6 @@ import json
 from collections import OrderedDict
 
 # TODO: change Scene
-train = 'day_city_street100'      # 'day_city_street100', 'night_city_street100'
 train_day = 'day_city_street100'
 train_night = 'night_city_street100'
 val = 'day_city_street5'          # 'day_city_street5', 'night_city_street5'
