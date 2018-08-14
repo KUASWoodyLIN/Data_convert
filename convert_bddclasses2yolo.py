@@ -3,10 +3,10 @@ import json
 from collections import OrderedDict
 
 # TODO: Change Path Name Here
-train_day = 'day_city_street100'
-train_night = 'night_city_street100'
-val_day = 'day_city_street8'
-val_night = 'night_city_street8'
+train_day = 'day'
+train_night = 'night'
+val_day = 'day'
+val_night = 'night'
 objects = {'person'}
 
 ROOT_PATH = os.path.split(os.getcwd())[0]
@@ -23,14 +23,14 @@ SAVE_TRAIN_DAY_LABELS_FILE = os.path.join(DATASET_PATH, 'train_' + train_day + '
 SAVE_TRAIN_NIGHT_LABELS_FILE = os.path.join(DATASET_PATH, 'train_' + train_night + '.txt')
 
 # Validation path
-# VAL_DAY_IMAGES_PATH = os.path.join(IMAGES_PATH, 'val/' + val_day)
-# VAL_DAY_LABELS_PATH = os.path.join(LABELS_PATH, 'val')
-# VAL_NIGHT_IMAGES_PATH = os.path.join(IMAGES_PATH, 'val/' + val_night)
-# VAL_NIGHT_LABELS_PATH = os.path.join(LABELS_PATH, 'val')
 VAL_DAY_IMAGES_PATH = os.path.join(IMAGES_PATH, 'val/' + val_day)
-VAL_DAY_LABELS_PATH = os.path.join(LABELS_PATH, 'train')
+VAL_DAY_LABELS_PATH = os.path.join(LABELS_PATH, 'val')
 VAL_NIGHT_IMAGES_PATH = os.path.join(IMAGES_PATH, 'val/' + val_night)
-VAL_NIGHT_LABELS_PATH = os.path.join(LABELS_PATH, 'train')
+VAL_NIGHT_LABELS_PATH = os.path.join(LABELS_PATH, 'val')
+# VAL_DAY_IMAGES_PATH = os.path.join(IMAGES_PATH, 'val/' + val_day)
+# VAL_DAY_LABELS_PATH = os.path.join(LABELS_PATH, 'train')
+# VAL_NIGHT_IMAGES_PATH = os.path.join(IMAGES_PATH, 'val/' + val_night)
+# VAL_NIGHT_LABELS_PATH = os.path.join(LABELS_PATH, 'train')
 SAVE_VAL_DAY_LABELS_FILE = os.path.join(DATASET_PATH, 'val_' + val_day + '.txt')
 SAVE_VAL_NIGHT_LABELS_FILE = os.path.join(DATASET_PATH, 'val_' + val_night + '.txt')
 

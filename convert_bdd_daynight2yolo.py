@@ -3,7 +3,7 @@ import json
 from collections import OrderedDict
 
 # TODO: choose <day / night>
-scenes = 'night'    # day or night
+scenes = 'day'    # day or night
 
 ROOT_PATH = os.path.split(os.getcwd())[0]
 DATASET_PATH = os.path.join(ROOT_PATH, 'BDD')
