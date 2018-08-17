@@ -3,10 +3,10 @@ import json
 from collections import OrderedDict
 
 # TODO: Change Path Name Here
-train_day = 'day_city_street200'
-train_night = 'night_city_street200'
-val_day = 'day_city_street200'
-val_night = 'night_city_street200'
+train_day = 'day_city_street1000'
+train_night = 'night_city_street1000'
+val_day = 'day_city_street1000'
+val_night = 'night_city_street1000'
 objects = {'person'}
 
 ROOT_PATH = os.path.split(os.getcwd())[0]
