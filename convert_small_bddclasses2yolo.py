@@ -3,10 +3,10 @@ import json
 from collections import OrderedDict
 
 # TODO: Change Path Name Here
-train_day = 'day'
-train_night = 'night'
-val_day = 'day'
-val_night = 'night'
+train_day = 'day_city_street200'
+train_night = 'night_city_street200'
+val_day = 'day_city_street200'
+val_night = 'night_city_street200'
 objects = {'person'}
 
 ROOT_PATH = os.path.split(os.getcwd())[0]
@@ -61,6 +61,9 @@ def convert_bdd2yolo(images_file, read_images_path, read_labels_path, save_file)
         if txt:
             tolal_files += 1
             save_file.write(os.path.join(read_images_path, img_file) + txt + '\n')
+        if tolal_files >= 200:
+            break
+
     save_file.close()
     return total_name, tolal_files
 
