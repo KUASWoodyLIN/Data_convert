@@ -47,6 +47,7 @@ def convert_bdd2yolo(images_file, read_images_path, read_labels_path, save_file)
         data = json.load(open(read_labels_path + '/' + label_file, 'r'))
         print('File name: {}'.format(label_file))
         txt = ""
+        person_nums = 0
         for frame in data['frames']:
             for object in frame['objects']:
                 if 'box2d' in object:
@@ -58,10 +59,12 @@ def convert_bdd2yolo(images_file, read_images_path, read_labels_path, save_file)
                         bottom = int(object['box2d']['y2'])
                         class_id = 0 # cls[obj_name]
                         txt += (" " + str(left) + ',' + str(top) + ',' + str(right) + ',' + str(bottom) + ',' + str(class_id))
+                        person_nums += 1
                     total_name[obj_name] = total_name.setdefault(obj_name, 0) + 1
         if txt:
-            tolal_files += 1
-            save_file.write(os.path.join(read_images_path, img_file) + txt + '\n')
+            if person_nums > 4:
+                tolal_files += 1
+                save_file.write(os.path.join(read_images_path, img_file) + txt + '\n')
         if tolal_files >= 200:
             break
 
