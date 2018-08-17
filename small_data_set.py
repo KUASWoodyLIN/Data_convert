@@ -74,6 +74,7 @@ def copy_samples(copy_images, copy_images_path_dst, copy_labels_path_dst, number
     if not os.path.exists(copy_labels_path_dst):
         os.makedirs(copy_labels_path_dst)
 
+    np.random.seed(1010)
     indices = np.random.permutation(len(copy_images))
     src_files_samples = [copy_images[i] for i in indices[:number]]
     dst_files_samples = [os.path.join(copy_images_path_dst, os.path.split(file)[-1]) for file in src_files_samples]
