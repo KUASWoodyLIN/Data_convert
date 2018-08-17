@@ -37,6 +37,7 @@ cls = OrderedDict((('traffic light', 0), ('traffic sign', 1), ('bus', 2),
 
 
 def convert_bdd2yolo(images_file, read_images_path, read_labels_path, save_file):
+    images_file.sort()
     total_name = {}
     tolal_files = 0
     save_file = open(save_file, 'w')

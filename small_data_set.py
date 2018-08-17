@@ -63,6 +63,7 @@ val_scene_night = list(val_night_images.intersection(val_scene_images, val_weath
 
 
 def copy_samples(copy_images, copy_images_path_dst, copy_labels_path_dst, number):
+    copy_images.sort()
     # Create images path
     if os.path.exists(copy_images_path_dst):   # if it exist already
       shutil.rmtree(copy_images_path_dst)
