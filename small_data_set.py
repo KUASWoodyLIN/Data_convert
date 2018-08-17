@@ -4,8 +4,8 @@ import numpy as np
 
 
 # setting
-Numbers_train = 100
-Numbers_val = 5
+Numbers_train = 200
+Numbers_val = 200
 Scene = 'city_street'  # or 'residential.txt'
 
 ROOT_PATH = os.path.split(os.getcwd())[0]
