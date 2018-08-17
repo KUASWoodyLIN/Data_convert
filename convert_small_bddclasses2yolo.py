@@ -3,10 +3,10 @@ import json
 from collections import OrderedDict
 
 # TODO: Change Path Name Here
-train_day = 'day_city_street1000'
-train_night = 'night_city_street1000'
-val_day = 'day_city_street1000'
-val_night = 'night_city_street1000'
+train_day = 'day_city_street3000'
+train_night = 'night_city_street3000'
+val_day = 'day_city_street3000'
+val_night = 'night_city_street3000'
 objects = {'person'}
 
 ROOT_PATH = os.path.split(os.getcwd())[0]
@@ -36,7 +36,7 @@ cls = OrderedDict((('traffic light', 0), ('traffic sign', 1), ('bus', 2),
                    ('bike', 6), ('rider', 7), ('train', 8), ('car', 9)))
 
 
-def convert_bdd2yolo(images_file, read_images_path, read_labels_path, save_file):
+def convert_bdd2yolo(images_file, read_images_path, read_labels_path, save_file, sample_limit=200):
     images_file.sort()
     total_name = {}
     tolal_files = 0
@@ -65,7 +65,7 @@ def convert_bdd2yolo(images_file, read_images_path, read_labels_path, save_file)
             if person_nums > 4:
                 tolal_files += 1
                 save_file.write(os.path.join(read_images_path, img_file) + txt + '\n')
-        if tolal_files >= 200:
+        if tolal_files >= sample_limit:
             break
 
     save_file.close()
@@ -84,9 +84,9 @@ if __name__ == "__main__":
     val_day_images = os.listdir(VAL_DAY_IMAGES_PATH)
     val_night_images = os.listdir(VAL_NIGHT_IMAGES_PATH)
     val_day_total_name, val_day_total_files = convert_bdd2yolo(val_day_images, VAL_DAY_IMAGES_PATH,
-                                                               VAL_DAY_LABELS_PATH, SAVE_VAL_DAY_LABELS_FILE)
+                                                               VAL_DAY_LABELS_PATH, SAVE_VAL_DAY_LABELS_FILE, 146)
     val_night_total_name, val_night_total_files = convert_bdd2yolo(val_night_images, VAL_NIGHT_IMAGES_PATH,
-                                                                   VAL_NIGHT_LABELS_PATH, SAVE_VAL_NIGHT_LABELS_FILE)
+                                                                   VAL_NIGHT_LABELS_PATH, SAVE_VAL_NIGHT_LABELS_FILE, 146)
 
     print('========================================================')
     print("Train set Day total classes")
